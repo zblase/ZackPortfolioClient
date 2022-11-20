@@ -142,3 +142,13 @@ button.mat-menu-item {
 mat-card {
     padding: 10px 16px;
 }
+
+mat-card-title {
+    font-size: 22px;
+    color: #3f51b5;
+    opacity: 0.85;
+}
+
+mat-card-content {
+    padding: 16px !important;
+}

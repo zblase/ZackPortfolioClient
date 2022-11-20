@@ -5,6 +5,7 @@
         <div style="display: flex; align-items: center;">
           Download Resum&#233;
           <!--<mat-divider [vertical]="true" style="margin: 0 4px 0 10px;"></mat-divider>-->
+          <div style="height: 22px; width: 1px; background-color: rgba(0,0,0,0.12); margin: 0px -2px 0px 12px;"></div>
           <mat-icon style="align-self: center; margin-left: 8px;">keyboard_arrow_down</mat-icon>
         </div>
       </button>
@@ -27,7 +28,7 @@
           <mat-card>
             <mat-card-title style="color: #3f51b5; opacity: 0.85;">Contact</mat-card-title>
   
-            <mat-card-content style="padding: 0px 16px 10px 16px;">
+            <mat-card-content>
               <div style="display: flex; flex-flow: column nowrap; gap: 14px;">
                 <div style="display: flex; gap: 10px; align-items: center;">
                   <mat-icon style="color: grey;"> email</mat-icon>
@@ -59,7 +60,7 @@
           <mat-card>
             <mat-card-title style="color: #3f51b5; opacity: 0.85;">Skills</mat-card-title>
   
-            <mat-card-content style="padding: 0px 16px 10px 16px;">
+            <mat-card-content>
               <div style="display: flex; flex-flow: column nowrap; gap: 20px;">
                 <div>
                   <h3>Languages:</h3>
@@ -141,7 +142,7 @@
         <mat-card>
           <mat-card-title style="color: #3f51b5; opacity: 0.85;">Career Focus</mat-card-title>
   
-          <mat-card-content style="padding: 0px 16px 10px 16px;">
+          <mat-card-content>
             <label>
               Positive, goal-oriented Software Engineer with professional experience in implementing full-stack solutions
               for
@@ -155,7 +156,7 @@
         <mat-card>
           <mat-card-title style="color: #3f51b5; opacity: 0.85;">Experience</mat-card-title>
   
-          <mat-card-content style="padding: 0px 16px 10px 16px; margin-top: 18px;">
+          <mat-card-content>
             <div style="display: flex; flex-flow:column nowrap; gap: 20px;">
               <div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
@@ -167,7 +168,7 @@
                   <label style="text-decoration: underline;">January 2021 - Current</label>
                 </div>
   
-                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                <div class="bullet-wrapper">
                   <div class="bullet-label">
                     <div class="bullet-point"></div>
                     <label>Full-stack development of web applications for various government agencies and response
@@ -211,7 +212,7 @@
                   <label style="text-decoration: underline;">August 2019 - December 2020</label>
                 </div>
   
-                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                <div class="bullet-wrapper">
                   <div class="bullet-label">
                     <div class="bullet-point"></div>
                     <label>Developed BIM software solutions and web services for clients in the AEC community.</label>
@@ -250,7 +251,7 @@
                   <label style="text-decoration: underline;">December 2017 - August 2020</label>
                 </div>
   
-                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                <div class="bullet-wrapper">
                   <div class="bullet-label">
                     <div class="bullet-point"></div>
                     <label>Full-stack web development including SQL management using SSMS, MVC architecture, .NET Framework
@@ -276,14 +277,14 @@
         <mat-card>
           <mat-card-title style="color: #3f51b5; opacity: 0.85;">Education</mat-card-title>
   
-          <mat-card-content style="padding: 0px 16px 10px 16px;">
+          <mat-card-content>
             <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
               <h3>University of Nebraska-Lincoln</h3>
   
               <label style="text-decoration: underline;">August 2014 - July 2019</label>
             </div>
   
-            <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+            <div class="bullet-wrapper">
               <div class="bullet-label">
                 <div class="bullet-point"></div>
                 <label>B.S. in Computer Science with a minor in Business</label>
@@ -295,7 +296,7 @@
         <mat-card>
           <mat-card-title style="color: #3f51b5; opacity: 0.85;">Personal Projects</mat-card-title>
   
-          <mat-card-content style="padding: 0px 16px 10px 16px;">
+          <mat-card-content>
             <div style="display: flex; flex-flow:column nowrap; gap: 20px;">
               <div>
                 <div style="margin-bottom: 8px;">
@@ -303,7 +304,7 @@
                   <mat-card-subtitle>Mobile Application</mat-card-subtitle>
                 </div>
   
-                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                <div class="bullet-wrapper">
                   <div class="bullet-label">
                     <div class="bullet-point"></div>
                     <label>Online multiplayer game where players battle with customized tanks and can form communities
@@ -334,7 +335,7 @@
                   <mat-card-subtitle>Mobile Application</mat-card-subtitle>
                 </div>
   
-                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                <div class="bullet-wrapper">
                   <div class="bullet-label">
                     <div class="bullet-point"></div>
                     <label>Quick reference guide on iOS for the game “Pokémon”.</label>
