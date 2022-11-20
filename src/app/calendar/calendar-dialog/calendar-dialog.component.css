@@ -1,0 +1,14 @@
+
+.title {
+    font-weight: 500;
+    color: #484848;
+    margin-right: 10px;
+  }
+  
+  .value {
+    font-size: 14px;
+  }
+  
+  ::ng-deep .mat-dialog-content {
+    margin: 0;
+  }

@@ -1,1 +1,191 @@
-<p>calendar works!</p>
+<div style="display: flex; flex-flow: column nowrap; height: 100%;">
+    <div style="display: flex; flex-flow: row wrap; height: 100%;">
+      <div style="display: flex; flex-flow: column nowrap; margin-top: 37px; max-width: 400px">
+        <mat-card>
+          <mat-card-title>
+            Schedule a meeting
+            <mat-divider [inset]="true" style="margin-top: 4px;"></mat-divider>
+          </mat-card-title>
+  
+          <mat-card-content>
+            <form (submit)="onCreateEvent()" [formGroup]="form" #calendarForm="ngForm"
+              style="display: flex; flex-flow: column nowrap;">
+  
+              <div class="titleInputWrapper">
+                <label>When:<label style="color: #ff5959"> *</label></label>
+                <mat-form-field appearance="outline">
+                  <!--<mat-label>Choose a date</mat-label>-->
+                  <input formControlName="date" matInput [matDatepicker]="picker">
+                  <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+  
+                <div style="display: flex; gap: 14px; margin-top: -0.6em; align-items: center; margin-top: 4px;">
+                  <div style="display: flex; flex: 1; align-items: center;">
+                    <button mat-stroked-button color="primary" [matMenuTriggerFor]="startMenu2" type="button" class="time-button">
+                      {{ getButtonTime('startTime') }}
+                    </button>
+                    <mat-menu #startMenu2="matMenu" yPosition="below">
+                      <button mat-menu-item *ngFor="let hour of hours" [matMenuTriggerFor]="sMinutes2"
+                        [matMenuTriggerData]="{hour: hour}"
+                        [disabled]="isHourDisabled(hour, true)">{{ formatTime(hour) }}</button>
+                    </mat-menu>
+                    <mat-menu #sMinutes2="matMenu">
+                      <ng-template matMenuContent let-hour="hour">
+                        <button
+                          *ngFor="let minute of minutes"
+                          mat-menu-item
+                          type="button"
+                          (click)="patchTime('startTime', hour, minute)"
+                          [disabled]="isMinuteDisabled(hour, minute, true)">
+                          {{ formatTime(hour, minute) }}
+                          <!--{{hour.substring(0,hour.length-2)}}:{{minute}}{{hour.substring(hour.length-2, hour.length)}}-->
+                        </button>
+                      </ng-template>
+                    </mat-menu>
+                  </div>
+  
+                  <label style="font-weight: 500;">to</label>
+  
+                  <div style="display: flex; flex: 1; align-items: center;">
+                    <button mat-stroked-button color="primary" [matMenuTriggerFor]="endMenu2" type="button" [disabled]="form.get('endTime')!.disabled" class="time-button">
+                      {{ getButtonTime('endTime') }}
+                    </button>
+                    <mat-menu #endMenu2="matMenu" yPosition="below">
+                      <button
+                        mat-menu-item
+                        *ngFor="let hour of hours"
+                        [matMenuTriggerFor]="eMinutes2"
+                        [matMenuTriggerData]="{hour: hour}"
+                        [disabled]="isHourDisabled(hour)">
+                          {{ formatTime(hour) }}
+                        </button>
+                    </mat-menu>
+                    <mat-menu #eMinutes2="matMenu">
+                      <ng-template matMenuContent let-hour="hour">
+                        <button
+                          *ngFor="let minute of minutes"
+                          mat-menu-item
+                          type="button"
+                          (click)="patchTime('endTime', hour, minute)"
+                          [disabled]="isMinuteDisabled(hour, minute)">
+                            {{ formatTime(hour, minute) }}
+                        </button>
+                      </ng-template>
+                    </mat-menu>
+                  </div>
+                </div>
+              </div>
+  
+  
+  
+              <div class="titleInputWrapper">
+                <label>Name:<label style="color: #ff5959"> *</label></label>
+                <div style="display: flex; gap: 10px;">
+                  <mat-form-field appearance="outline">
+                    <input matInput formControlName="firstName" placeholder="First">
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <input matInput formControlName="lastName" placeholder="Last">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="titleInputWrapper">
+                <label>Phone:</label>
+                <mat-form-field appearance="outline">
+                  <input matInput formControlName="number" type="tel" placeholder="(xxx) xxx-xxx">
+                </mat-form-field>
+              </div>
+              <div class="titleInputWrapper">
+                <label>Email:<label style="color: #ff5959"> *</label></label>
+  
+                <mat-form-field appearance="outline">
+                  <input matInput formControlName="email" type="email" placeholder="johndoe@example.com">
+                </mat-form-field>
+              </div>
+              <div class="titleInputWrapper">
+                <label>Additional Details:</label>
+                <mat-form-field appearance="outline">
+                  <textarea matInput rows="4" formControlName="details"
+                    placeholder="i.e. discussing .NET opportunity"></textarea>
+                </mat-form-field>
+              </div>
+  
+              <div>
+                <button mat-stroked-button color="primary" type="button" (click)="filePicker.click()">
+                  Attach File(s)
+                </button>
+                <input type="file" #filePicker (change)="onFilePicked($event)">
+              </div>
+  
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: -10px;">
+                <div *ngFor="let file of files" class="custom-chip">
+                  <div style="display: flex; align-items: center; min-width: 0px;">
+                    <img src="{{getFileIcon(file)}}" alt="file icon">
+                    <label>{{ file.name }}</label>
+                  </div>
+  
+                  <button mat-icon-button color="warn" (click)="onFileRemoved(file)">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </div>
+              </div>
+  
+              <button mat-raised-button type="submit" color="primary" style="margin-top: 2.5em;" [disabled]="!form.valid">Create Event</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="time-column" style="padding: 0px 4px 0px 50px; gap: 3px;">
+        <div *ngFor="let hour of hours" class="time-row">
+          <label [ngStyle]="{ 'visibility': calType === 2 ? 'hidden' : 'visible'}">{{ formatTime(hour) }}</label>
+        </div>
+      </div>
+      <div style="display: flex; flex-flow: column nowrap; flex: 1;">
+        <div style="display: flex; justify-content: space-between;">
+          <div style="display: flex; align-items: flex-end; gap: 10px;">
+            <h1>{{ monthNames[currStart.getMonth()] }}</h1>
+            <h2 style="color: #737373; margin-bottom: 1px;">{{ today.getFullYear() }}</h2>
+          </div>
+  
+          <mat-button-toggle-group name="calendarFormat" role="group" [(ngModel)]="calType" (change)="populateDays()"
+            style="height: 28px; font-size: 14px;">
+            <mat-button-toggle [value]="0" name="day">Day</mat-button-toggle>
+            <mat-button-toggle [value]="1" name="week">Week</mat-button-toggle>
+            <mat-button-toggle [value]="2" name="month">Month</mat-button-toggle>
+          </mat-button-toggle-group>
+  
+          <div style="display: flex; gap: 30px;">
+            <div style="display: flex; gap: 2px; height: 30px;">
+              <button mat-icon-button color="primary" (click)="offsetCalendar(-1)"
+                style="padding: 0; line-height: 28px; height: 100%; border: solid 1px rgba(0,0,0,0.12); border-radius: 4px; background-color: white;">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+              </button>
+              <button mat-stroked-button color="primary" (click)="resetCurrentStart()" style=" background-color: white;">Today</button>
+              <button mat-icon-button color="primary" (click)="offsetCalendar(1)"
+                style="padding: 0; line-height: 28px; height: 100%; border: solid 1px rgba(0,0,0,0.12); border-radius: 4px; background-color: white;">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </div>
+  
+            <div style="display: flex; gap: 4px; align-items: center; padding-top: 6px;">
+              <div style="display: flex; width: 12px; height: 12px; background-color: rgba(63,81,181, 0.5); border-radius: 3px;"></div>
+              <label style="font-size: 10px; font-weight: 300;"> = Not Available</label>
+            </div>
+          </div>
+        </div>
+  
+        <div *ngIf="calType==2" class="calendar-grid calendar-header">
+          <div *ngFor="let day of currDays" class="day-header">
+            <label>{{ day }}</label>
+          </div>
+        </div>
+  
+        <div class="calendar-grid calendar-body"
+          [ngStyle]="{'grid-template-columns': calType === 0 ? '100%' : 'repeat(7, 1fr)'}">
+          <app-calendar-day *ngFor="let day of calDays; let index = index" [day]="day" [index]="index" [showDay]="calType!=2"></app-calendar-day>
+        </div>
+      </div>
+    </div>
+  </div>

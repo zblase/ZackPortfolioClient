@@ -1,0 +1,129 @@
+.calendar-grid {
+    display: grid;
+    column-gap: 1px;
+  
+  }
+  
+  .calendar-header {
+    grid-template-columns: repeat(auto-fit, minmax(1px,1fr));
+    margin-top: 14px;
+    height: 30px;
+  }
+  
+  .calendar-body {
+    background-color: #dedede;
+    flex: 1;
+    border: 1px solid #d8d8d8;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .grid-item {
+    background-color: white;
+  }
+  
+  .day-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #535353;
+  }
+  
+  .time-column {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 1fr);
+  }
+  
+  .time-row {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    font-size: 10px;
+    color: #535353;
+  }
+  
+  .time-button {
+    flex: 1;
+    padding-top: 2px;
+  }
+  
+  ::ng-deep .mat-form-field {
+    flex: 1;
+  }
+  
+  
+  ::ng-deep div .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: unset;
+  }
+  
+  ::ng-deep .mat-button-toggle-button {
+    height: inherit;
+  }
+  
+  ::ng-deep .mat-button-toggle {
+    height: 100%;
+    background-color: white;
+  }
+  
+  ::ng-deep .mat-button-toggle-checked {
+    background-color: #3f51b5 !important;
+    color: white !important;
+  }
+  
+  ::ng-deep .mat-button-wrapper .mat-icon {
+    font-size: 24px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  ::ng-deep .mat-stroked-button {
+    line-height: 30px;
+  
+  }
+  
+  ::ng-deep .mat-chip-list-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  ::ng-deep .mat-standard-chip {
+    justify-content: space-between;
+    text-overflow: ellipsis;
+    overflow: hidden !important;
+    white-space: nowrap;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+    top: 2em;
+    margin-top: unset;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0.55em !important;
+  }
+  
+  ::ng-deep .mat-select-arrow {
+    margin-top: 10px !important;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 1.15em 0 0.85em 0;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding: 0 !important;
+  }
+  
+  ::ng-deep .mat-menu-content {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  
+  ::ng-deep .cdk-overlay-pane {
+    transform: unset !important;
+  }
+  
+  ::ng-deep .mat-stroked-button:disabled {
+    border-color: rgba(0,0,0,.12)
+  }

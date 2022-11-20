@@ -1,0 +1,42 @@
+<div [ngClass]="{ 'top-border': index > 6}"
+    style="display: flex; flex-direction: column; background-color: white; height: 100%;">
+  
+  
+    <div style="display: flex; align-items: center;">
+      <div
+        [ngClass]="{
+          'blur-date': day.date.getMonth() !== now.getMonth(),
+          'today-date': day.date.getDate() === now.getDate() && day.date.getMonth() === now.getMonth()
+        }"
+        style="display: flex; justify-content: center; align-items: center; padding: 5px; margin: 4px;">
+        <label>{{ day.date.getDate() }}</label>
+      </div>
+  
+      <label
+        *ngIf="showDay"
+        style="font-size: 14px; color: #767676; margin-top: 2px;"
+        [ngClass]="{'blur-date': day.date.getMonth() !== now.getMonth()}">
+          {{days[day.date.getDay()]}}
+        </label>
+    </div>
+  
+    <div class="time-column">
+      <div
+        *ngFor="let time of slots; let index = index;"
+        [ngStyle]="{
+          'grid-row': time.start + '/' + time.end,
+          'padding': time.end - time.start > 1 ? '1px' : '',
+          'border-top': time.time % 1 == 0 ? 'dashed 1px #eaeaea': ''
+        }">
+        <div [ngClass]="time.class" style="flex: 1; height: 100%;">
+          <div *ngIf="time.class.includes('new-event')" style="font-size: 9px; display: flex; flex-direction: column; padding: 3px; gap: 1px;">
+            <label style="font-weight: 600;">New Event</label>
+            <label>{{getSlotTime()}}</label>
+          </div>
+          <!--<div *ngIf="!time.class.includes('new-event')" style="font-size: 9px; display: flex; flex-direction: column; padding: 3px; gap: 1px;">
+            <label>{{time.time}} - {{time.start}}/{{time.end}}</label>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
