@@ -1,1 +1,144 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.container {
+    padding: 20px;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    justify-content: space-between;
+}
+
+.iconName {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+    padding: 0 8px;
+}
+
+.selected {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+textarea.mat-input-element,
+div.mat-form-field-infix {
+    width: 100%;
+}
+
+.mat-form-field-infix {
+    border-top: none;
+}
+
+.titleInputWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 20px;
+}
+
+.titleInputWrapper>label {
+    font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+.mat-typography h3 {
+    margin: 0 !important;
+}
+
+.mat-card-title {
+    margin-bottom: 1em !important;
+}
+
+
+.custom-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 4px;
+    border-radius: 16px;
+    height: 32px;
+    min-width: 0px;
+    background-color: #e0e0e0;
+
+    box-shadow: 3px 3px 4px -1px rgba(0, 0, 0, 0.22);
+}
+
+.custom-chip label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.custom-chip img,
+button img {
+    width: 18px;
+    height: 18px;
+    margin: 0px 5px;
+}
+
+.custom-chip button {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    opacity: 0.85;
+}
+
+.mat-mdc-menu-content {
+    padding: 0 !important;
+}
+
+.mat-mdc-menu-item .mdc-list-item__primary-text {
+    display: flex;
+    align-items: center;
+}
+
+.mat-card-actions,
+.mat-card-content,
+.mat-card-subtitle {
+    margin-bottom: 12px;
+}
+
+mat-card-subtitle {
+    margin-top: -8px !important;
+}
+
+a,
+label {
+    font-size: 16px;
+}
+
+button.mat-menu-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+}
+
+mat-card {
+    padding: 10px 16px;
+}

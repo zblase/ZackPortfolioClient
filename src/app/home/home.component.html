@@ -1,0 +1,364 @@
+
+<div style="padding: 20px 30px;">
+    <div style="display: flex; justify-content: flex-end;">
+      <button mat-raised-button style="padding: 0 10px;" [matMenuTriggerFor]="formatMenu">
+        <div style="display: flex; align-items: center;">
+          Download Resum&#233;
+          <!--<mat-divider [vertical]="true" style="margin: 0 4px 0 10px;"></mat-divider>-->
+          <mat-icon style="align-self: center; margin-left: 8px;">keyboard_arrow_down</mat-icon>
+        </div>
+      </button>
+      <mat-menu #formatMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="downloadResume('.pdf')">
+          <img src="../assets/pdf.svg">
+          PDF
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="downloadResume('.docx')">
+          <img src="../assets/word.svg">
+          Word
+        </button>
+      </mat-menu>
+    </div>
+  
+    <div style="display: flex; flex-flow: row nowrap; gap: 36px; margin-top: 20px;">
+      <div style="display: flex; flex-flow: column nowrap; gap: 26px;">
+        <div>
+          <mat-card>
+            <mat-card-title style="color: #3f51b5; opacity: 0.85;">Contact</mat-card-title>
+  
+            <mat-card-content style="padding: 0px 16px 10px 16px;">
+              <div style="display: flex; flex-flow: column nowrap; gap: 14px;">
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <mat-icon style="color: grey;"> email</mat-icon>
+                  <label>zblase@gmail.com</label>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <mat-icon style="color: grey;"> phone</mat-icon>
+                  <label>(480) 823-5228</label>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <mat-icon style="color: grey;"> location_on</mat-icon>
+                  <label>Phoenix, AZ</label>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <img style="width: 24px; height: 22px; opacity: 0.5;" src="../assets/linkedin.svg" alt="linkedin icon">
+                  <a style="color: #3f51b5;" href="https://www.linkedin.com/in/zachary-blase-85a837b6"
+                    target="_blank">LinkedIn</a>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                  <img style="width: 24px; height: 22px; opacity: 0.5;" src="../assets/github.svg" alt="linkedin icon">
+                  <a style="color: #3f51b5;" href="https://www.github.com/zblase" target="_blank">Github</a>
+                </div>
+  
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div>
+          <mat-card>
+            <mat-card-title style="color: #3f51b5; opacity: 0.85;">Skills</mat-card-title>
+  
+            <mat-card-content style="padding: 0px 16px 10px 16px;">
+              <div style="display: flex; flex-flow: column nowrap; gap: 20px;">
+                <div>
+                  <h3>Languages:</h3>
+                  <div style="display: flex; flex-flow: row wrap; gap: 6px; margin-top: 8px;">
+                    <div class="custom-chip">C#</div>
+                    <div class="custom-chip">Java</div>
+                    <div class="custom-chip">Type/Javascript</div>
+                    <div class="custom-chip">HTML</div>
+                    <div class="custom-chip">CSS</div>
+                    <div class="custom-chip">Swift</div>
+                  </div>
+                </div>
+  
+                <mat-divider [inset]="true"></mat-divider>
+  
+                <div>
+                  <h3>Frameworks:</h3>
+                  <div style="display: flex; flex-flow: row wrap; gap: 6px; margin-top: 8px;">
+                    <div class="custom-chip">Angular</div>
+                    <div class="custom-chip">.NET</div>
+                    <div class="custom-chip">.NET Core</div>
+                    <div class="custom-chip">Node.js</div>
+                    <div class="custom-chip">Express.js</div>
+                    <div class="custom-chip">React</div>
+                  </div>
+                </div>
+  
+                <mat-divider [inset]="true"></mat-divider>
+  
+                <div>
+                  <h3>Databases:</h3>
+                  <div style="display: flex; flex-flow: row wrap; gap: 6px; margin-top: 8px;">
+                    <div class="custom-chip">SQL</div>
+                    <div class="custom-chip">MySQL</div>
+                    <div class="custom-chip">SSMS</div>
+                    <div class="custom-chip">Entity Framework</div>
+                    <div class="custom-chip">MongoDB</div>
+                  </div>
+                </div>
+  
+                <mat-divider [inset]="true"></mat-divider>
+  
+                <div>
+                  <h3>DevOps:</h3>
+                  <div style="display: flex; flex-flow: row wrap; gap: 6px; margin-top: 8px;">
+                    <div class="custom-chip">Azure</div>
+                    <div class="custom-chip">VCS (Git)</div>
+                    <div class="custom-chip">Agile/Scrum</div>
+                  </div>
+                </div>
+  
+                <mat-divider [inset]="true"></mat-divider>
+  
+                <div>
+                  <h3>Design:</h3>
+                  <div style="display: flex; flex-flow: row wrap; gap: 6px; margin-top: 8px;">
+                    <div class="custom-chip">Illustrator</div>
+                    <div class="custom-chip">Photoshop</div>
+                    <div class="custom-chip">InDesign</div>
+                  </div>
+                </div>
+  
+                <mat-divider [inset]="true"></mat-divider>
+  
+                <div>
+                  <h3>Other:</h3>
+                  <div style="display: flex; flex-flow: row wrap; gap: 6px; margin-top: 8px;">
+                    <div class="custom-chip">Regex</div>
+                  </div>
+                </div>
+              </div>
+  
+            </mat-card-content>
+          </mat-card>
+        </div>
+  
+      </div>
+      <div style="display: flex; flex-flow: column nowrap; gap: 26px;">
+        <mat-card>
+          <mat-card-title style="color: #3f51b5; opacity: 0.85;">Career Focus</mat-card-title>
+  
+          <mat-card-content style="padding: 0px 16px 10px 16px;">
+            <label>
+              Positive, goal-oriented Software Engineer with professional experience in implementing full-stack solutions
+              for
+              new and existing projects. Possesses a large range of programming skills with strong written and verbal
+              communications. Always driven to learning new topics and concepts to further my knowledge and expertise in
+              product development.
+            </label>
+          </mat-card-content>
+        </mat-card>
+  
+        <mat-card>
+          <mat-card-title style="color: #3f51b5; opacity: 0.85;">Experience</mat-card-title>
+  
+          <mat-card-content style="padding: 0px 16px 10px 16px; margin-top: 18px;">
+            <div style="display: flex; flex-flow:column nowrap; gap: 20px;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <div>
+                    <h3>MSTS - Nevada National Security Site</h3>
+                    <mat-card-subtitle>Software Engineer</mat-card-subtitle>
+                  </div>
+  
+                  <label style="text-decoration: underline;">January 2021 - Current</label>
+                </div>
+  
+                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Full-stack development of web applications for various government agencies and response
+                      personnel.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Designed reliable and clean user interfaces that are responsive to all screen
+                      resolutions.</label>
+  
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Implemented data services using Entity Framework and Microsoft SQL Server Management
+                      Studio.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Hosting, file management, and authentication implemented with Azure Portal.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Front-end development of iOS applications using XCode Interface Builder and Xamarin.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Collaborated with team members using Git and Azure DevOps.</label>
+                  </div>
+                </div>
+              </div>
+  
+              <mat-divider></mat-divider>
+  
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <div>
+                    <h3>ASSA ABLOY - Openings Studio</h3>
+                    <mat-card-subtitle>Software Engineer</mat-card-subtitle>
+                  </div>
+  
+                  <label style="text-decoration: underline;">August 2019 - December 2020</label>
+                </div>
+  
+                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Developed BIM software solutions and web services for clients in the AEC community.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Responsibilities included full-stack development and implementing new/existing features in
+                      multiple server/client
+                      applications including web, mobile, and desktop.</label>
+  
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Mobile app developed in C# using the Xamarin platform.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Desktop, web, and server-side developed in Java.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Managed and implemented database queries in SQL using SSMS.</label>
+                  </div>
+                </div>
+              </div>
+  
+              <mat-divider></mat-divider>
+  
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <div>
+                    <h3>Speedway Motors</h3>
+                    <mat-card-subtitle>Web Developer (Internship)</mat-card-subtitle>
+                  </div>
+  
+                  <label style="text-decoration: underline;">December 2017 - August 2020</label>
+                </div>
+  
+                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Full-stack web development including SQL management using SSMS, MVC architecture, .NET Framework
+                      (including
+                      ASP.NET), and AWS.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Server-side developed in C# and client-side developed in Javascript using ReactJS and
+                      Redux.</label>
+  
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Worked in a proficient team setting while utilizing agile development methodologies.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+  
+        <mat-card>
+          <mat-card-title style="color: #3f51b5; opacity: 0.85;">Education</mat-card-title>
+  
+          <mat-card-content style="padding: 0px 16px 10px 16px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+              <h3>University of Nebraska-Lincoln</h3>
+  
+              <label style="text-decoration: underline;">August 2014 - July 2019</label>
+            </div>
+  
+            <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+              <div class="bullet-label">
+                <div class="bullet-point"></div>
+                <label>B.S. in Computer Science with a minor in Business</label>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+  
+        <mat-card>
+          <mat-card-title style="color: #3f51b5; opacity: 0.85;">Personal Projects</mat-card-title>
+  
+          <mat-card-content style="padding: 0px 16px 10px 16px;">
+            <div style="display: flex; flex-flow:column nowrap; gap: 20px;">
+              <div>
+                <div style="margin-bottom: 8px;">
+                  <h3>Poly Tanks</h3>
+                  <mat-card-subtitle>Mobile Application</mat-card-subtitle>
+                </div>
+  
+                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Online multiplayer game where players battle with customized tanks and can form communities
+                      called platoons.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Client-side is developed in the Unity engine with C# scripting.</label>
+  
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Server-side is implemented using the PlayFab platform and player networking with Photon
+                      PUN.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Available for download on the iOS App Store and Google Play Store.</label>
+                  </div>
+                </div>
+              </div>
+  
+              <mat-divider></mat-divider>
+  
+              <div>
+                <div style="margin-bottom: 8px;">
+                  <h3>Pokedia</h3>
+                  <mat-card-subtitle>Mobile Application</mat-card-subtitle>
+                </div>
+  
+                <div style="display: flex; flex-flow:column nowrap; gap: 5px;">
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Quick reference guide on iOS for the game “Pokémon”.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Built for personal use and to practice my XCode/Swift skills.</label>
+  
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Data provided by an open RESTful API.</label>
+                  </div>
+                  <div class="bullet-label">
+                    <div class="bullet-point"></div>
+                    <label>Available to clone/download at “github.com/zblase/pokedia”.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  
+  </div>
+  
