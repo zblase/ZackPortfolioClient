@@ -1,6 +1,6 @@
-<div style="display: flex; flex-flow: column nowrap; height: 100%;">
+<div style="display: flex; flex-flow: column nowrap; height: 100%; padding: 20px;">
     <div style="display: flex; flex-flow: row wrap; height: 100%;">
-      <div style="display: flex; flex-flow: column nowrap; margin-top: 37px; max-width: 400px">
+      <div style="display: flex; flex-flow: column nowrap; margin-top: 37px; max-width: 380px">
         <mat-card>
           <mat-card-title>
             Schedule a meeting
@@ -139,14 +139,14 @@
       </div>
       <div class="time-column" style="padding: 0px 4px 0px 50px; gap: 3px;">
         <div *ngFor="let hour of hours" class="time-row">
-          <label [ngStyle]="{ 'visibility': calType === 2 ? 'hidden' : 'visible'}">{{ formatTime(hour) }}</label>
+          <label [ngStyle]="{ 'visibility': calType === 2 ? 'hidden' : 'visible'}" style="font-size: 11px;">{{ formatTime(hour) }}</label>
         </div>
       </div>
       <div style="display: flex; flex-flow: column nowrap; flex: 1;">
-        <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
           <div style="display: flex; align-items: flex-end; gap: 10px;">
             <h1>{{ monthNames[currStart.getMonth()] }}</h1>
-            <h2 style="color: #737373; margin-bottom: 1px;">{{ today.getFullYear() }}</h2>
+            <h2 style="color: #737373; margin-bottom: -2px;">{{ today.getFullYear() }}</h2>
           </div>
   
           <mat-button-toggle-group name="calendarFormat" role="group" [(ngModel)]="calType" (change)="populateDays()"
