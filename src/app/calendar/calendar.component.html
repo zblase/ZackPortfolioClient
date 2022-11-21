@@ -137,7 +137,7 @@
           </mat-card-content>
         </mat-card>
       </div>
-      <div class="time-column" style="padding: 0px 4px 0px 50px; gap: 3px;">
+      <div class="time-column" style="padding: 38px 4px 0px 50px; gap: 3px;">
         <div *ngFor="let hour of hours" class="time-row">
           <label [ngStyle]="{ 'visibility': calType === 2 ? 'hidden' : 'visible'}" style="font-size: 11px;">{{ formatTime(hour) }}</label>
         </div>
