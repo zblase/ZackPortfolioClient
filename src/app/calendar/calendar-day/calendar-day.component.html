@@ -16,7 +16,7 @@
         *ngIf="showDay"
         style="font-size: 14px; color: #767676; margin-top: 2px;"
         [ngClass]="{'blur-date': day.date.getMonth() !== now.getMonth()}">
-          {{days[day.date.getDay()]}}
+          {{dayName}}
         </label>
     </div>
   

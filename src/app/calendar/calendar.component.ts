@@ -1,5 +1,5 @@
 //import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { Component, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatMenu } from '@angular/material/menu';
@@ -44,6 +44,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
   hours: number[] = [];
   minutes: string[] = ['00', '15', '30', '45'];
 
+  loading = true;
+
 
   constructor(private calendarService: CalendarService, public dialog: MatDialog) { }
 
@@ -52,6 +54,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.eventsSub = this.calendarService.getEventListener().subscribe((events: CalendarEvent[]) => {
       this.events = events;
       this.resetCurrentStart();
+      this.loading = false;
     });
 
     //valid scheduling times range from 16:00 to 3:00 UTC
@@ -290,6 +293,9 @@ export class CalendarComponent implements OnInit, OnDestroy {
         e.end.dateTime.getHours() > hour)) {
         return true;
       }
+      else {
+        return false;
+      }
     }
     else if (this.form.get('endTime')?.enabled) {
       let disabled = true;
@@ -301,8 +307,9 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
       return disabled;
     }
-
-    return true;
+    else {
+      return false;
+    }
   }
 
   isMinuteDisabled(hour: number, minute: string, start: boolean = false) {

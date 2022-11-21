@@ -49,7 +49,7 @@ div.mat-form-field-infix {
 .titleInputWrapper {
     display: flex;
     flex-flow: column nowrap;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .titleInputWrapper>label {

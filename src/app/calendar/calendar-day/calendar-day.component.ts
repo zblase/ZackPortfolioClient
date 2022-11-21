@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CalendarDay } from '../calendar-day.model';
 import { CalendarEvent } from '../calendar-event.model';
 
@@ -27,10 +27,13 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   times: number[] = [];
   slots: TimeSlot[] = [];
+  dayName: string = '';
 
   constructor() { }
 
   ngOnInit() {
+    this.setDayName();
+
     this.times = [];
     const hrOffset = this.now.getTimezoneOffset() / 60;
     for (let i = 16; i <= 26; i++) {
@@ -48,6 +51,19 @@ export class CalendarDayComponent implements OnInit, OnChanges {
     this.day.events?.sort((a, b) => a.start.dateTime.getTime() - b.start.dateTime.getTime());
 
     this.populateSlots();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.setDayName();
+  }
+
+  setDayName() {
+    this.dayName = this.days[this.day.date.getDay()];
+
+    if (window.innerWidth < 1300) {
+      this.dayName = this.dayName.substring(0, 3);
+    }
   }
 
   populateSlots() {

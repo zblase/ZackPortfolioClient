@@ -11,7 +11,7 @@
             <form (submit)="onCreateEvent()" [formGroup]="form" #calendarForm="ngForm"
               style="display: flex; flex-flow: column nowrap;">
   
-              <div class="titleInputWrapper" style="margin-bottom: 36px;">
+              <div class="titleInputWrapper" style="margin-bottom: 24px;">
                 <label>When:<label style="color: #ff5959"> *</label></label>
                 <mat-form-field appearance="outline">
                   <!--<mat-label>Choose a date</mat-label>-->
@@ -182,7 +182,9 @@
           </div>
         </div>
   
-        <div class="calendar-grid calendar-body"
+        <mat-spinner *ngIf="loading" style="align-self: center; height: 100%;"></mat-spinner>
+
+        <div *ngIf="!loading" class="calendar-grid calendar-body"
           [ngStyle]="{'grid-template-columns': calType === 0 ? '100%' : 'repeat(7, 1fr)'}">
           <app-calendar-day *ngFor="let day of calDays; let index = index" [day]="day" [index]="index" [showDay]="calType!=2"></app-calendar-day>
         </div>
