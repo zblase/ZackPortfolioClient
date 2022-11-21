@@ -5,6 +5,7 @@
 
 .bullet-wrapper {
     display: flex;
+    align-items: flex-start;
     flex-flow: column nowrap;
     gap: 5px;
     padding-left: 10px;
@@ -16,6 +17,7 @@
     border-radius: 2px;
     background-color: black;
     margin-top: 6px;
+    flex: 1 0 4px;
 }
 
 .bullet-label {

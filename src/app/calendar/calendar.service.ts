@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
 import { map } from 'rxjs/operators';
+import { environment } from "src/environments/environment";
 import { CalendarEvent } from "./calendar-event.model";
 
 @Injectable({providedIn: 'root'})
@@ -14,9 +15,8 @@ export class CalendarService {
   private newEvent = new Subject<CalendarEvent | Error>();
 
   getEvents() {
-    this.http.get<{events: any}>('http://localhost:3000/api/calendar')
+    this.http.get<{events: any}>(environment.apiUrl + 'calendar')
       .pipe(map((eventData) => {
-        console.log(eventData);
         return eventData.events.map((event: { start: { dateTime: string | number | Date; }; end: { dateTime: string | number | Date; }; summary: any; }) => {
           const sDate = new Date(event.start.dateTime);
           sDate.setSeconds(0);
@@ -51,7 +51,7 @@ export class CalendarService {
       formData.append('files', file);
     }
 
-    this.http.post<{message: string, event: any}>('http://localhost:3000/api/calendar', formData)
+    this.http.post<{message: string, event: any}>(environment.apiUrl + 'calendar', formData)
       .subscribe(res => {
         this.newEvent.next(event);
         this.events.push(event);
