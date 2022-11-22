@@ -13,9 +13,9 @@
   .calendar-body {
     background-color: #dedede;
     flex: 1;
-    border: 1px solid #d8d8d8;
+    /*border: 1px solid #d8d8d8;
     border-radius: 6px;
-    overflow: hidden;
+    overflow: hidden;*/
   }
   
   .grid-item {
@@ -32,11 +32,13 @@
   .time-column {
     display: flex;
     flex-direction: column;
+    padding: 42px 4px 0px 4px;
   }
 
   .time-row > label {
     font-size: 11px;
-    margin: -12px 0;
+    margin: -6px 0;
+    height: 14px;
     white-space: nowrap;
   }
   
@@ -152,6 +154,11 @@
   }
 
 
+
+  .hideDesktop {
+    display: none;
+  }
+
   @media (max-width: 1175px) {
     .calendarFormat {
       display: none;
@@ -163,5 +170,20 @@
 
     .scheduleCard {
       width: 100%;
+      margin-top: 0;
+    }
+
+    .hideDesktop {
+      display: flex;
+    }
+
+    .hideMobile {
+      display: none;
+    }
+
+    .time-row > label {
+      font-size: 10px;
+      margin: 0;
+      color:#9c9c9c;
     }
   }
