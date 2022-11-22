@@ -152,12 +152,35 @@ mat-card-title {
 mat-card-content {
     padding: 16px !important;
 }
-/*
-.mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input:not(textarea), .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control:not(textarea), .mat-mdc-text-field-wrapper:not(textarea) {
-    height: 44px !important;
+
+
+
+.hideDesktop {
+  display: none !important;
 }
 
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
-    padding: 0 !important;
+@media (max-width: 1175px) {
+
+  .container {
+    flex-direction: column !important;
+  }
+
+  .scheduleCard {
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .hideDesktop {
+    display: flex !important;
+  }
+
+  .hideMobile {
+    display: none !important;
+  }
+
+  .time-row > label {
+    font-size: 10px !important;
+    margin: 0 !important;
+    color:#9c9c9c !important;
+  }
 }
-*/

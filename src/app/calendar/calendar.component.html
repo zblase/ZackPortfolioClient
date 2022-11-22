@@ -146,7 +146,7 @@
           </div>
 
           <mat-button-toggle-group name="calendarFormat" role="group" [(ngModel)]="calType" (change)="populateDays()"
-            style="height: 28px; font-size: 14px;" class="calendarFormat">
+            style="height: 28px; font-size: 14px;" class="calendarFormat hideMobile">
             <mat-button-toggle [value]="0" name="day">Day</mat-button-toggle>
             <mat-button-toggle [value]="1" name="week">Week</mat-button-toggle>
             <mat-button-toggle [value]="2" name="month">Month</mat-button-toggle>

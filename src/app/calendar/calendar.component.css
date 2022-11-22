@@ -152,38 +152,3 @@
   ::ng-deep .mat-stroked-button:disabled {
     border-color: rgba(0,0,0,.12)
   }
-
-
-
-  .hideDesktop {
-    display: none;
-  }
-
-  @media (max-width: 1175px) {
-    .calendarFormat {
-      display: none;
-    }
-
-    .container {
-      flex-direction: column;
-    }
-
-    .scheduleCard {
-      width: 100%;
-      margin-top: 0;
-    }
-
-    .hideDesktop {
-      display: flex;
-    }
-
-    .hideMobile {
-      display: none;
-    }
-
-    .time-row > label {
-      font-size: 10px;
-      margin: 0;
-      color:#9c9c9c;
-    }
-  }
