@@ -15,7 +15,7 @@ export class CalendarService {
   private newEvent = new Subject<CalendarEvent | Error>();
 
   getEvents() {
-    this.http.get<{events: any}>(environment.apiUrl + 'calendar')
+    this.http.get<{events: any}>(environment.apiUrl + 'api/calendar')
       .pipe(map((eventData) => {
         return eventData.events.map((event: { start: { dateTime: string | number | Date; }; end: { dateTime: string | number | Date; }; summary: any; }) => {
           const sDate = new Date(event.start.dateTime);
@@ -51,7 +51,7 @@ export class CalendarService {
       formData.append('files', file);
     }
 
-    this.http.post<{message: string, event: any}>(environment.apiUrl + 'calendar', formData)
+    this.http.post<{message: string, event: any}>(environment.apiUrl + 'api/calendar', formData)
       .subscribe(res => {
         this.newEvent.next(event);
         this.events.push(event);

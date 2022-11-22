@@ -60,7 +60,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     //valid scheduling times range from 16:00 to 3:00 UTC
     this.hours = [];
     const hrOffset = this.currStart.getTimezoneOffset() / 60;
-    for (let i = 16; i <= 27; i++) {
+    for (let i = 16; i <= 26; i++) {
       const time = (i - hrOffset) % 24;
       this.hours.push(time);
     }
@@ -155,6 +155,18 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.eventsSub.unsubscribe();
   }
 
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.checkScreenWidth();
+  }
+
+  checkScreenWidth() {
+    if (window.innerWidth < 1175 && this.calType != 0) {
+      this.calType = 0;
+      this.populateDays();
+    }
+  }
+
   validateTime() {
     const sTime = this.form.get('startTime')?.value as Date;
     const eTime = this.form.get('endTime')?.value as Date || new Date(sTime);
@@ -198,6 +210,10 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   populateDays() {
     this.calDays = [];
+
+    if (window.innerWidth < 1175 && this.calType != 0) {
+      this.calType = 0;
+    }
 
     switch (this.calType) {
       case 0:

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as fileSaver from 'file-saver';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   downloadResume(ext: string) {
     //var blob = new Blob()
-    var test = fileSaver.saveAs('http://localhost:3000/resume-files/ZackBlaseResume' + ext, 'idk')
+    var test = fileSaver.saveAs(environment.apiUrl + 'resume-files/ZackBlaseResume' + ext, 'idk')
     console.dir(test);
     return
 

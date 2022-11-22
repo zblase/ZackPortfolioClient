@@ -61,7 +61,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   setDayName() {
     this.dayName = this.days[this.day.date.getDay()];
 
-    if (window.innerWidth < 1300) {
+    if (window.innerWidth < 1400 && window.innerWidth > 1175) {
       this.dayName = this.dayName.substring(0, 3);
     }
   }

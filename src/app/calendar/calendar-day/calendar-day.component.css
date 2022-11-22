@@ -19,12 +19,11 @@
     grid-auto-rows: 1fr;
     flex: 1;
     margin-top: 17px;
-    margin-bottom: 6px;
 
     font-size: 10px;
 }
 
-.time-column>div {
+.time-column > div {
     flex: 1;
 }
 
