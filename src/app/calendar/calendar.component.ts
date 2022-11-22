@@ -366,7 +366,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
 
     if (start) {
-      if (this.currEvents.find(e => e.start.dateTime.getTime() <= date.getTime() && e.end.dateTime.getTime() > date.getTime())) {
+      //date.setMinutes(date.getMinutes() + 15);
+      if (this.currEvents.find(e => e.start.dateTime.getTime() <= date.getTime() + 900000 && e.end.dateTime.getTime() > date.getTime())) {
         return true;
       }
       else {
