@@ -422,7 +422,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
       }],
     }
 
-    console.dir(this.files);
     this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
       data: newEvent,
@@ -443,6 +442,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
       });
 
       this.files = [];
+
+      this.populateDays();
     });
   }
 

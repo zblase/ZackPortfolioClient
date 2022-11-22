@@ -1,35 +1,34 @@
-
-
 <div style="display: flex; justify-content: center">
-    <mat-spinner *ngIf="loading"></mat-spinner>
+  <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<div *ngIf="!loading" style="max-height: 100%; height: 100%; display: flex; flex-flow: column nowrap; padding-top: 20px;">
+  <div mat-dialog-title style="display: flex; align-items: center;">
+    <mat-icon style="color: #80e080; margin: 0px 5px 2px 0px;">check_circle</mat-icon>
+    Meeting Confirmed
   </div>
-  
-  <div *ngIf="!loading" style="max-height: 100%; height: 100%; display: flex; flex-flow: column nowrap;">
-    <div mat-dialog-title style="display: flex; align-items: center;">
-      <mat-icon style="color: #80e080; margin: 0px 5px 2px 0px;">check_circle</mat-icon>
-      Meeting Confirmed
+  <mat-dialog-content style="display: flex; flex-flow: column nowrap; gap: 8px; margin-bottom: 50px;">
+    <label class="title" style="font-size: 18px;">{{event.summary}}</label>
+    <div>
+      <label class="title">When:</label>
+      <label class="value">{{dateTime}}</label>
     </div>
-    <mat-dialog-content style="display: flex; flex-flow: column nowrap; gap: 8px; margin-bottom: 50px;">
-      <label class="title" style="font-size: 18px;">{{event.summary}}</label>
-      <div>
-        <label class="title">When:</label>
-        <label class="value">{{dateTime}}</label>
-      </div>
-      <div>
-        <label class="title">Additional Details:</label>
-        <label class="value">{{event.description}}</label>
-      </div>
-      <div *ngIf="event.attachments && event.attachments.length > 0">
-        <label class="title">Attachments:</label>
-        <label>TODO</label>
-      </div>
-    </mat-dialog-content>
-    <mat-divider></mat-divider>
-    <mat-dialog-actions style="justify-content: space-between;">
-      <label style="font-size: 13px; font-style: italic;">
-        You can reach me at &nbsp;<label style="font-weight: 500; font-style: normal;">(480) 823-5228</label>,
-        and I look forward to meeting with you.
-      </label>
-      <button mat-button mat-dialog-close color="primary">Close</button>
-    </mat-dialog-actions>
-  </div>
+    <div>
+      <label class="title">Additional Details:</label>
+      <label class="value">{{event.description}}</label>
+    </div>
+    <div *ngIf="event.attachments && event.attachments.length > 0">
+      <label class="title">Attachments:</label>
+      <label>TODO</label>
+    </div>
+  </mat-dialog-content>
+  <mat-divider></mat-divider>
+  <mat-dialog-actions style="justify-content: space-between;">
+    <label style="font-size: 13px; font-style: italic;">
+      You can reach me at &nbsp;<label style="font-weight: 500; font-style: normal; font-size: 14px;">(480)
+        823-5228</label>,
+      and I look forward to meeting with you.
+    </label>
+    <button mat-button mat-dialog-close color="primary">Close</button>
+  </mat-dialog-actions>
+</div>

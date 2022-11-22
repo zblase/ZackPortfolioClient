@@ -29,9 +29,9 @@
           'border-top': time.time % 1 == 0 ? 'dashed 1px #eaeaea': ''
         }">
         <div [ngClass]="time.class" style="flex: 1; height: 100%;">
-          <div *ngIf="time.class.includes('new-event')" style="font-size: 9px; display: flex; flex-direction: column; padding: 3px; gap: 1px;">
-            <label style="font-weight: 600;">New Event</label>
-            <label>{{getSlotTime()}}</label>
+          <div *ngIf="time.class.includes('new-event')" style="display: flex; flex-direction: column; padding: 3px; gap: 1px;">
+            <label style="font-weight: 600; font-size: 13px;">New Event</label>
+            <label style="font-size: 12px; margin-top: -5px;">{{getSlotTime()}}</label>
           </div>
           <!--<div *ngIf="!time.class.includes('new-event')" style="font-size: 9px; display: flex; flex-direction: column; padding: 3px; gap: 1px;">
             <label>{{time.time}} - {{time.start}}/{{time.end}}</label>
