@@ -183,4 +183,8 @@ mat-card-content {
     margin: 0 !important;
     color:#9c9c9c !important;
   }
+
+  .cardWrapper {
+    flex-flow: column-reverse nowrap !important;
+  }
 }

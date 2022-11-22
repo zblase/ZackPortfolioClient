@@ -37,3 +37,7 @@ button.mat-menu-item {
     padding: 0 8px;
     background-color: pink;
 }
+
+.cardWrapper {
+    display: flex; flex-flow: row nowrap; gap: 36px; margin-top: 20px;
+}
