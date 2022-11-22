@@ -14,17 +14,17 @@ export class CalendarDialogComponent implements OnInit, OnDestroy {
   loading = true;
   private eventSub!: Subscription;
   newEvent!: CalendarEvent;
-  dateTime: string = '';
+  dateStr: string = '';
+  timeStr: string = '';
+  days: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   constructor(public dialogRef: MatDialogRef<CalendarDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public event: CalendarEvent, private calendarService: CalendarService) { }
 
   ngOnInit() {
-    /*this.eventSub = this.calendarService.getNewEventListener().subscribe((event: CalendarEvent) => {
-      this.newEvent = event;
-      this.formatDateTime();
-      this.loading = false;
-    });*/
+    this.newEvent = this.event;
+    this.formatDateTime();
+    this.loading = false;
 
 
     this.eventSub = this.calendarService.getNewEventListener().subscribe((ev) => {
@@ -43,10 +43,12 @@ export class CalendarDialogComponent implements OnInit, OnDestroy {
   formatDateTime() {
 
     let sTime = this.newEvent.start.dateTime.toLocaleTimeString();
-    sTime = sTime.substring(0, sTime.lastIndexOf(':')) + sTime.substring(sTime.length - 3);
+    sTime = sTime.substring(0, sTime.lastIndexOf(':')) + sTime.substring(sTime.length - 2);
     let eTime = this.event.end.dateTime.toLocaleTimeString();
-    eTime = eTime.substring(0, eTime.lastIndexOf(':')) + eTime.substring(eTime.length - 3);
-    this.dateTime = sTime + ' - ' + eTime + ', &nbsp;' + this.event.start.dateTime.toLocaleDateString();
+    eTime = eTime.substring(0, eTime.lastIndexOf(':')) + eTime.substring(eTime.length - 2);
+
+    this.dateStr = this.days[this.event.start.dateTime.getDay()] + ', ' + this.event.start.dateTime.toLocaleDateString();
+    this.timeStr = sTime + ' - ' + eTime;
 
   }
 }

@@ -301,6 +301,24 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   isHourDisabled(hour: number, start: boolean = false) {
 
+    if (start && this.events.find(e =>
+      e.start.dateTime.getDate() == this.currStart.getDate() &&
+      e.start.dateTime.getMonth() == this.currStart.getMonth() &&
+      e.start.dateTime.getHours() < hour &&
+      e.end.dateTime.getHours() > hour)) {
+      return true;
+    }
+    else {
+      let disabled = true;
+        this.minutes.forEach(m => {
+          if (!this.isMinuteDisabled(hour, m, start)) {
+            disabled = false;
+          }
+        });
+
+        return disabled;
+    }
+/*
     if (start) {
       if (this.events.find(e =>
         e.start.dateTime.getDate() == this.currStart.getDate() &&
@@ -310,7 +328,14 @@ export class CalendarComponent implements OnInit, OnDestroy {
         return true;
       }
       else {
-        return false;
+        let disabled = true;
+        this.minutes.forEach(m => {
+          if (!this.isMinuteDisabled(hour, m, true)) {
+            disabled = false;
+          }
+        });
+
+        return disabled;
       }
     }
     else if (this.form.get('endTime')?.enabled) {
@@ -326,6 +351,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     else {
       return false;
     }
+    */
   }
 
   isMinuteDisabled(hour: number, minute: string, start: boolean = false) {
@@ -349,6 +375,9 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
     else {
       const sTime = this.form.get('startTime')?.value;
+      if (!sTime) {
+        return true;
+      }
       const nextStart = this.currEvents.find(e => e.start.dateTime.getTime() > sTime.getTime());
 
       if (date.getTime() <= sTime.getTime()) {
@@ -402,9 +431,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
     end.setMonth(date.getMonth());
     end.setDate(date.getDate());
 
+    const desc = this.form.get('details')?.value + ' - ' + this.form.get('number')?.value;
+
     const newEvent: CalendarEvent = {
       summary: this.form.get('firstName')?.value + ' ' + this.form.get('lastName')?.value + ' & Zack Blase',
-      description: this.form.get('details')?.value,
+      description: desc,
       start: {
         dateTime: start,
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -421,6 +452,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
         comment: this.form.get('number')?.value
       }],
     }
+
 
     this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
