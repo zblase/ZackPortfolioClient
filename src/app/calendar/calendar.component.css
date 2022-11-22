@@ -63,7 +63,7 @@
     width: 380px;
   }
 
-  .container {
+  /*.container {
     display: flex; 
     min-height: calc(100% - 64px); 
     padding: 20px; 
@@ -71,7 +71,7 @@
     justify-content: flex-start; 
     align-content: flex-start; 
     gap: 40px;
-  }
+  }*/
   
   ::ng-deep .mat-form-field {
     flex: 1;

@@ -12,8 +12,14 @@ body {
 
 
 .container {
-    padding: 20px;
-}
+    display: flex; 
+    min-height: calc(100% - 64px); 
+    padding: 20px; 
+    box-sizing: border-box; 
+    justify-content: flex-start; 
+    align-content: flex-start; 
+    gap: 40px;
+  }
 
 .mat-toolbar-row,
 .mat-toolbar-single-row {

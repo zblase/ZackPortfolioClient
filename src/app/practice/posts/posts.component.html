@@ -1,1 +1,29 @@
-<p>posts works!</p>
+<div>
+    <mat-card style="margin-bottom: 10px;">
+      <form (submit)="onAddPost(postForm)" #postForm="ngForm" style="display: flex; flex-flow: column nowrap;">
+        <mat-form-field appearance="outline">
+          <input matInput type="text" name="title" id="title" class="form-control" placeholder="Post Title" ngModel required #title="ngModel">
+          <mat-error *ngIf="title.invalid">Invalid title</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <textarea matInput rows="6" name="content" placeholder="Post Content" ngModel required #content="ngModel"></textarea>
+          <mat-error *ngIf="content.invalid">Invalid content</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Save Post</button>
+      </form>
+    </mat-card>
+  
+    <mat-accordion multi="true">
+      <mat-expansion-panel *ngFor="let post of posts">
+        <mat-expansion-panel-header>
+          <mat-label>{{ post.title }}</mat-label>
+        </mat-expansion-panel-header>
+        <p>{{ post.content }}</p>
+  
+        <mat-action-row>
+          <button mat-button color="primary" (click)="openDialog(post)">Edit</button>
+          <button mat-button color="warn" (click)="onDelete(post.id)">Remove</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>

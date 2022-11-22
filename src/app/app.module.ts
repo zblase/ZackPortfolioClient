@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +30,7 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogEditPost } from './practice/posts/posts.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MainPracticeComponent } from './practice/main-practice/main-practice.component';
 import { PostsComponent } from './practice/posts/posts.component';
@@ -47,6 +48,7 @@ import { CalendarDialogComponent } from './calendar/calendar-dialog/calendar-dia
     CalendarComponent,
     MainPracticeComponent,
     PostsComponent,
+    DialogEditPost,
     AboutComponent,
     ImageUploadComponent,
     LoginComponent,
