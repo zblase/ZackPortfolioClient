@@ -4,10 +4,10 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './practice/about/about.component';
 import { ImageUploadComponent } from './practice/image-upload/image-upload.component';
-import { LoginComponent } from './practice/login/login.component';
+import { LoginComponent } from './practice/auth/login/login.component';
 import { MainPracticeComponent } from './practice/main-practice/main-practice.component';
 import { PostsComponent } from './practice/posts/posts.component';
-import { SignupComponent } from './practice/signup/signup.component';
+import { SignupComponent } from './practice/auth/signup/signup.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

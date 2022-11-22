@@ -1,0 +1,33 @@
+<div>
+    <mat-card>
+      <form
+        *ngIf="!userAuthenticated"
+        [formGroup]="form"
+        #loginForm='ngForm'
+        (submit)="onLogin()"
+        style="display: flex; flex-flow: column nowrap;">
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="text"
+            formControlName="email"
+            placeholder="Email">
+          <mat-error *ngIf="form.get('email')?.invalid">Invalid email</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            autocomplete="on">
+        </mat-form-field>
+  
+        <button *ngIf="!isLoading" mat-raised-button type="submit" color="primary">Login</button>
+        <mat-spinner *ngIf="isLoading" style="align-self: center;"></mat-spinner>
+      </form>
+  
+      <button *ngIf="userAuthenticated" mat-raised-button (click)="onLogout()" color="warn">Logout</button>
+    </mat-card>
+  </div>

@@ -36,8 +36,8 @@ import { MainPracticeComponent } from './practice/main-practice/main-practice.co
 import { PostsComponent } from './practice/posts/posts.component';
 import { AboutComponent } from './practice/about/about.component';
 import { ImageUploadComponent } from './practice/image-upload/image-upload.component';
-import { LoginComponent } from './practice/login/login.component';
-import { SignupComponent } from './practice/signup/signup.component';
+import { LoginComponent } from './practice/auth/login/login.component';
+import { SignupComponent } from './practice/auth/signup/signup.component';
 import { CalendarDayComponent } from './calendar/calendar-day/calendar-day.component';
 import { CalendarDialogComponent } from './calendar/calendar-dialog/calendar-dialog.component';
 
