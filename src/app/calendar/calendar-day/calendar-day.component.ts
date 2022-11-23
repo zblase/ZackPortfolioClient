@@ -95,16 +95,19 @@ export class CalendarDayComponent implements OnInit, OnChanges {
 
       if (!!currStart) {
         if (t >= this.formatEventTime(this.day.events[currEventIndex].end.dateTime)) {
-          this.slots.push({
-            time: this.times[currStart - 1],
-            start: currStart,
-            end: i,
-            class: (this.day.events[currEventIndex]).new ? 'new-event' : 'busy-event'
-          });
-
-          currStart = null;
+          if (this.day.events.length - 1 == currEventIndex || this.day.events[currEventIndex].end.dateTime.getTime() != this.day.events[currEventIndex + 1].start.dateTime.getTime() || this.day.events[currEventIndex + 1].summary == 'New Event' || this.day.events[currEventIndex].summary == 'New Event') {
+            this.slots.push({
+              time: this.times[currStart - 1],
+              start: currStart,
+              end: i,
+              class: (this.day.events[currEventIndex]).new ? 'new-event' : 'busy-event'
+            });
+  
+            currStart = null;
+            i--;
+          }
+          
           currEventIndex++;
-          i--;
         }
       }
       else if (currEventIndex < this.day.events.length && t >= this.formatEventTime(this.day.events[currEventIndex].start.dateTime)) {

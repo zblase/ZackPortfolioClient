@@ -168,15 +168,17 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   validateTime() {
+    const selDate = this.form.get('date')?.value as Date;
+    const events = this.events.filter(e => e.start.dateTime.getFullYear() == selDate.getFullYear() && e.start.dateTime.getMonth() == selDate.getMonth() && e.start.dateTime.getDate() == selDate.getDate());
     const sTime = this.form.get('startTime')?.value as Date;
-    const eTime = this.form.get('endTime')?.value as Date || new Date(sTime);
+    let eTime = this.form.get('endTime')?.value as Date;
 
-    if (sTime && sTime >= eTime) {
-      eTime.setHours(sTime.getHours());
-      eTime.setMinutes(sTime.getMinutes() + 30);
+    if (!this.form.get('endTime')?.value || events.filter(e => e.start.dateTime.getTime() > sTime.getTime() && e.start.dateTime.getTime() < eTime.getTime()).length > 0) {
+      eTime = new Date(sTime);
+      eTime.setMinutes(eTime.getMinutes() + 30);
       this.form.patchValue({ 'endTime': eTime });
     }
-    else if (sTime && eTime) {
+    else {
       this.renderNewEvent();
     }
   }
@@ -310,48 +312,14 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
     else {
       let disabled = true;
-        this.minutes.forEach(m => {
-          if (!this.isMinuteDisabled(hour, m, start)) {
-            disabled = false;
-          }
-        });
-
-        return disabled;
-    }
-/*
-    if (start) {
-      if (this.events.find(e =>
-        e.start.dateTime.getDate() == this.currStart.getDate() &&
-        e.start.dateTime.getMonth() == this.currStart.getMonth() &&
-        e.start.dateTime.getHours() < hour &&
-        e.end.dateTime.getHours() > hour)) {
-        return true;
-      }
-      else {
-        let disabled = true;
-        this.minutes.forEach(m => {
-          if (!this.isMinuteDisabled(hour, m, true)) {
-            disabled = false;
-          }
-        });
-
-        return disabled;
-      }
-    }
-    else if (this.form.get('endTime')?.enabled) {
-      let disabled = true;
       this.minutes.forEach(m => {
-        if (!this.isMinuteDisabled(hour, m, false)) {
+        if (!this.isMinuteDisabled(hour, m, start)) {
           disabled = false;
         }
       });
 
       return disabled;
     }
-    else {
-      return false;
-    }
-    */
   }
 
   isMinuteDisabled(hour: number, minute: string, start: boolean = false) {
@@ -366,7 +334,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
 
     if (start) {
-      //date.setMinutes(date.getMinutes() + 15);
       if (this.currEvents.find(e => e.start.dateTime.getTime() <= date.getTime() + 900000 && e.end.dateTime.getTime() > date.getTime())) {
         return true;
       }
@@ -397,6 +364,8 @@ export class CalendarComponent implements OnInit, OnDestroy {
     const date = new Date(this.form.get('date')?.value);
     date.setHours(hour);
     date.setMinutes(parseInt(minute));
+    date.setSeconds(0);
+    date.setMilliseconds(0);
 
     this.form.patchValue({ [time]: date });
   }

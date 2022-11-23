@@ -33,11 +33,14 @@
 
 .new-event {
     border-radius: 5px;
-    background-color: rgba(63, 81, 181, 0.25);
-    border: solid 1px rgba(63, 81, 181, 0.1);
+    background-color: rgba(63, 81, 181, 0.45);
+    border: solid 1px rgba(63, 81, 181, 0.25);
 }
 
 .busy-event {
     border-radius: 5px;
-    background-color: rgba(63, 81, 181, 0.5);
+    background-color: rgba(63, 81, 181, 0.75);
+    background-image: url("../../../assets/BusyEventBackground-01.png");
+    background-size: 100%;
+    border: solid 1px rgba(63, 81, 181, 0.1);
 }

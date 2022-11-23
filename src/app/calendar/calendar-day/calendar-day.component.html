@@ -28,7 +28,7 @@
           'padding': time.end - time.start > 1 ? '1px' : '',
           'border-top': time.time % 1 == 0 ? 'dashed 1px #eaeaea': ''
         }">
-        <div [ngClass]="time.class" style="flex: 1; height: 100%;">
+        <div [ngClass]="time.class" style="flex: 1; height: calc(100% - 2px);">
           <div *ngIf="time.class.includes('new-event')" style="display: flex; flex-direction: column; padding: 3px; gap: 1px;">
             <label style="font-weight: 600; font-size: 13px;">New Event</label>
             <label style="font-size: 12px; margin-top: -5px;">{{getSlotTime()}}</label>
