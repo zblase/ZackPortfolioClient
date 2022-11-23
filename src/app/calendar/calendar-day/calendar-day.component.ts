@@ -117,7 +117,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
           this.slots.push({
             time: this.times[currStart - 1],
             start: currStart,
-            end: i,
+            end: i + 1,
             class: (this.day.events[currEventIndex]).new ? 'new-event' : 'busy-event'
           });
         }
