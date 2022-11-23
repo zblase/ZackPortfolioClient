@@ -86,6 +86,10 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   }
 
   renderEvents() {
+    if (this.day.date.getDate() == 25) {
+      console.dir(this.day.events);
+      console.dir(this.times);
+    }
     this.slots = [];
     let currStart: number | null = null;
     let currEventIndex: number = 0;
@@ -108,6 +112,14 @@ export class CalendarDayComponent implements OnInit, OnChanges {
           }
           
           currEventIndex++;
+        }
+        else if (i == this.times.length) {
+          this.slots.push({
+            time: this.times[currStart - 1],
+            start: currStart,
+            end: i,
+            class: (this.day.events[currEventIndex]).new ? 'new-event' : 'busy-event'
+          });
         }
       }
       else if (currEventIndex < this.day.events.length && t >= this.formatEventTime(this.day.events[currEventIndex].start.dateTime)) {
