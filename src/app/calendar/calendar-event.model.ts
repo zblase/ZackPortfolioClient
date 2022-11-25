@@ -27,4 +27,5 @@ export interface CalendarEvent {
       }
     ];
     new?: boolean;
+    number?: number;
   }

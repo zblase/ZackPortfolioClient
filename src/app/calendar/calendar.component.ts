@@ -401,11 +401,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
     end.setMonth(date.getMonth());
     end.setDate(date.getDate());
 
-    const desc = this.form.get('details')?.value + ' - ' + this.form.get('number')?.value;
+    console.log(this.form.get('details')?.value);
 
     const newEvent: CalendarEvent = {
       summary: this.form.get('firstName')?.value + ' ' + this.form.get('lastName')?.value + ' & Zack Blase',
-      description: desc,
+      description: this.form.get('details')?.value,
       start: {
         dateTime: start,
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -421,10 +421,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
         responseStatus: 'needsAction',
         comment: this.form.get('number')?.value
       }],
+      number: this.form.get('number')?.value
     }
 
 
-    this.calendarService.createEvent(newEvent, this.files);
+    //this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
       data: newEvent,
       width: '50%'

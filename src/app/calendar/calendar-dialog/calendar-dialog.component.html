@@ -7,7 +7,7 @@
     <mat-icon style="color: #80e080; margin: 0px 5px 2px 0px;">check_circle</mat-icon>
     Meeting Confirmed
   </div>
-  <mat-dialog-content style="display: flex; flex-flow: column nowrap; gap: 8px; margin-bottom: 50px;">
+  <mat-dialog-content style="display: flex; flex-flow: column nowrap; gap: 8px;">
     <label class="title" style="font-size: 18px;">{{event.summary}}</label>
     <div>
       <label class="title">When:</label>
@@ -17,18 +17,42 @@
       <label class="title">Additional Details:</label>
       <label class="value">{{event.description}}</label>
     </div>
-    <div *ngIf="event.attachments && event.attachments.length > 0">
+    <!--<div *ngIf="event.attachments && event.attachments.length > 0">
       <label class="title">Attachments:</label>
       <label>TODO</label>
-    </div>
-  </mat-dialog-content>
-  <mat-divider></mat-divider>
-  <mat-dialog-actions style="justify-content: space-between;">
-    <label style="font-size: 13px; font-style: italic;">
-      You can reach me at &nbsp;<label style="font-weight: 500; font-style: normal; font-size: 14px;">(480)
+    </div>-->
+
+    <label style="font-size: 14px; font-style: italic; margin-top: 50px; align-self: center;">
+      You can reach me at &nbsp;<label style="font-weight: 500; font-style: normal; color: #484848; font-size: inherit;">(480)
         823-5228</label>,
       and I look forward to meeting with you.
     </label>
+  </mat-dialog-content>
+  <mat-divider></mat-divider>
+  <mat-dialog-actions style="justify-content: space-between; padding: 12px;">
+    <div style="display: flex; justify-content: flex-end;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <label style="font-style: italic;">Need my resum&#233;?</label>
+        <button mat-raised-button color="primary" style="padding: 0 10px;" [matMenuTriggerFor]="formatMenu">
+          <div style="display: flex; align-items: center;">
+            Download
+            <div style="height: 22px; width: 1px; background-color: rgba(0,0,0,0.12); margin: 0px -2px 0px 12px;"></div>
+            <mat-icon style="align-self: center; margin-left: 8px;">keyboard_arrow_down</mat-icon>
+          </div>
+        </button>
+      </div>
+      <mat-menu #formatMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="downloadResume('.pdf')">
+          <img src="../assets/pdf.svg">
+          PDF
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="downloadResume('.docx')">
+          <img src="../assets/word.svg">
+          Word
+        </button>
+      </mat-menu>
+    </div>
     <button mat-button mat-dialog-close color="primary">Close</button>
   </mat-dialog-actions>
 </div>
