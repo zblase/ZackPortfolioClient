@@ -1,6 +1,14 @@
 .custom-chip {
     padding: 0px 10px;
     height: 28px;
+    background-color: rgba(63, 81, 181, 0.15);
+}
+
+.chip-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 8px;
+    margin-top: 8px;
 }
 
 .bullet-wrapper {
