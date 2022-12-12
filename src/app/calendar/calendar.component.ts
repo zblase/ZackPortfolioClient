@@ -425,7 +425,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
 
 
-    //this.calendarService.createEvent(newEvent, this.files);
+    this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
       data: newEvent,
       width: '50%'
