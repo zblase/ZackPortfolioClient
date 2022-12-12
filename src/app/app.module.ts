@@ -81,7 +81,8 @@ import { CalendarDialogComponent } from './calendar/calendar-dialog/calendar-dia
     MatNativeDateModule,
     MatSelectModule,
     MatDividerModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

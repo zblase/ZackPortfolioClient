@@ -8,6 +8,10 @@ interface TopicNode {
   name: string;
   route?: string;
   children?: TopicNode[];
+  tooltip?: {
+    icon: string;
+    content: string;
+  }
 }
 
 const TREE_DATA: TopicNode[] = [
@@ -20,6 +24,10 @@ const TREE_DATA: TopicNode[] = [
       {name: 'Post Creator', route: 'posts'},
       {name: 'Image Upload', route: 'image-upload'},
     ],
+    tooltip: {
+      icon: 'help',
+      content: 'MongoDB, Express, Angular, NodeJS'
+    }
   },
   {
     name: 'Authentication',
