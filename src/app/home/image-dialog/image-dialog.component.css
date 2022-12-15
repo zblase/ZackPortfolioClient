@@ -1,0 +1,13 @@
+
+.imgWrapper {
+    display: flex; 
+    justify-content: center; 
+    position: absolute; 
+    width: 0px; 
+    height: 85%; 
+    padding-top: 26px;
+}
+
+.imgWrapper > img {
+    height: 100%; border-radius: 8px;
+}

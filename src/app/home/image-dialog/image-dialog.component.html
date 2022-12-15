@@ -1,0 +1,36 @@
+<div style="display: flex; flex-flow: column nowrap; height: 100%;">
+    <!--<div style="display: flex; justify-content: flex-end;">
+        <mat-icon style="color: red; padding: 10px; cursor: pointer; margin-bottom: -10px;">close</mat-icon>
+    </div>-->
+    <div style="display: flex; align-items: center; overflow: hidden; height: 100%;">
+        <button mat-fab style="position: absolute; left: 10px; z-index: 100;" color="primary" (click)="shiftLeft()" [disabled]="currMid == 0 || disableShift">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+
+        <div style="display: flex; align-items: center;">
+            <div 
+                [@imgSlide]="img.state" 
+                (@imgSlide.start)="captureStartEvent($event)" 
+                (@imgSlide.done)="captureDoneEvent($event)" 
+                *ngFor="let img of currImgs" 
+                class="imgWrapper"
+                [ngStyle]="{'z-index': img.state == 'mid' ? 1 : 0}"
+            >
+                <img src="../assets/pokedia-images/{{img.url}}" [ngStyle]="{'box-shadow': img.state == 'mid' ? '0px 0px 24px 8px rgba(0, 0, 0, 0.3)' : 'unset'}">
+            </div>
+        </div>
+
+        <button mat-fab style="position: absolute; right: 10px; z-index: 100;" color="primary" (click)="shiftRight()" [disabled]="currMid == images.length - 1 || disableShift">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+    
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px;">
+        <div style="width: 74px;"></div>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 6px; align-self: center;">
+            <div [@currImage]="dot" *ngFor="let dot of dots" style="width: 6px; height: 6px; border-radius: 50%; background-color: black;"></div>
+        </div>
+        <button mat-raised-button mat-dialog-close color="primary" style="align-self: flex-end">Close</button>
+    </div>
+</div>
+

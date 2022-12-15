@@ -3,6 +3,8 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as fileSaver from 'file-saver';
 import { environment } from 'src/environments/environment';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -11,26 +13,25 @@ import { environment } from 'src/environments/environment';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  pokediaImgs: string[] = ['IMG_3490.PNG', 'IMG_3491.PNG', 'IMG_3492.PNG', 'IMG_3493.PNG', 'IMG_3494.PNG', 'IMG_3495.PNG', 'IMG_3496.PNG'];
+
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
 
   ngOnInit() {
+    
   }
 
   downloadResume(ext: string) {
-    //var blob = new Blob()
-    var test = fileSaver.saveAs(environment.apiUrl + 'resume-files/ZackBlaseResume' + ext, 'idk')
-    console.dir(test);
-    return
+    fileSaver.saveAs(environment.apiUrl + 'resume-files/ZackBlaseResume' + ext, 'ZackBlaseResume')
+  }
 
-
-    this.http.get('http://localhost:3000/resume-files/ZackBlaseResume' + ext, {responseType: 'arraybuffer'}).subscribe((response) => {
-      let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
-      const url= window.URL.createObjectURL(blob);
-window.open(url);
-fileSaver.saveAs(blob, 'employees.json');
-    }, (error) => {
-      console.error(error);
-    })
-		//return this.http.get('http://localhost:8080/employees/download', {responseType: 'arraybuffer'});
+  openImageDialog(images: string[]) {
+    this.dialog.open(ImageDialogComponent, {
+      data: images,
+      width: '90%',
+      maxWidth: '900px',
+      height: '90%',
+      maxHeight: '750px'
+    });
   }
 }

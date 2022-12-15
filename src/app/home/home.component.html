@@ -382,9 +382,16 @@
               <mat-divider></mat-divider>
   
               <div>
-                <div style="margin-bottom: 8px;">
-                  <h3 style="font-weight: 500;">Pokedia</h3>
-                  <mat-card-subtitle>Mobile Application</mat-card-subtitle>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <div>
+                    <h3 style="font-weight: 500;">Pokedia</h3>
+                    <mat-card-subtitle>Mobile Application</mat-card-subtitle>
+                  </div>
+                  
+                  <div class="bullet-label" style="color: rgba(63, 81, 181, 1); cursor: pointer;" (click)="openImageDialog(pokediaImgs)">
+                    <mat-icon style="font-size: 22px;">camera_alt</mat-icon>
+                    <label style="cursor: pointer; text-decoration: underline;">Screenshots</label>
+                  </div>
                 </div>
   
                 <div class="bullet-wrapper">

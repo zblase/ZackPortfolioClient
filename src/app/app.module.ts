@@ -40,6 +40,7 @@ import { LoginComponent } from './practice/auth/login/login.component';
 import { SignupComponent } from './practice/auth/signup/signup.component';
 import { CalendarDayComponent } from './calendar/calendar-day/calendar-day.component';
 import { CalendarDialogComponent } from './calendar/calendar-dialog/calendar-dialog.component';
+import { ImageDialogComponent } from './home/image-dialog/image-dialog.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CalendarDialogComponent } from './calendar/calendar-dialog/calendar-dia
     LoginComponent,
     SignupComponent,
     CalendarDayComponent,
-    CalendarDialogComponent
+    CalendarDialogComponent,
+    ImageDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -49,3 +49,7 @@ button.mat-menu-item {
 .cardWrapper {
     display: flex; flex-flow: row nowrap; gap: 36px; margin-top: 20px;
 }
+
+::ng-deep .mdc-dialog__surface {
+    overflow: hidden;
+}
