@@ -46,8 +46,21 @@ button.mat-menu-item {
     background-color: pink;
 }
 
-.cardWrapper {
-    display: flex; flex-flow: row nowrap; gap: 36px; margin-top: 20px;
+.card-wrapper {
+    display: flex; flex-flow: row nowrap; row-gap: 26px; column-gap: 36px; margin-top: 20px;
+}
+
+.title-wrapper {
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 8px;
+    flex-flow: row wrap;
+}
+
+.title-wrapper label {
+    white-space: nowrap;
+    margin-bottom: 10px;
+    margin-top: 3px;
 }
 
 ::ng-deep .mdc-dialog__surface {

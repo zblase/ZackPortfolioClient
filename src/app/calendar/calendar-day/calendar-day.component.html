@@ -25,17 +25,13 @@
         *ngFor="let time of slots; let index = index;"
         [ngStyle]="{
           'grid-row': time.start + '/' + time.end,
-          'padding': time.end - time.start > 1 ? '1px' : '',
           'border-top': time.time % 1 == 0 ? 'dashed 1px #eaeaea': ''
         }">
-        <div [ngClass]="time.class" style="flex: 1; height: calc(100% - 2px);">
-          <div *ngIf="time.class.includes('new-event')" style="display: flex; flex-direction: column; padding: 3px; gap: 1px;">
-            <label style="font-weight: 600; font-size: 13px;">New Event</label>
-            <label style="font-size: 12px; margin-top: -5px;">{{getSlotTime()}}</label>
+        <div [ngClass]="time.class" style="height: calc(100% - 2px);">
+          <div *ngIf="time.class.includes('new-event')" style="display: flex; flex-direction: column; padding-left: 4px;">
+            <label class="slot-title">New Event</label>
+            <label class="slot-time">{{getSlotTime()}}</label>
           </div>
-          <!--<div *ngIf="!time.class.includes('new-event')" style="font-size: 9px; display: flex; flex-direction: column; padding: 3px; gap: 1px;">
-            <label>{{time.time}} - {{time.start}}/{{time.end}}</label>
-          </div>-->
         </div>
       </div>
     </div>

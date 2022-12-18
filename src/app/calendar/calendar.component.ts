@@ -271,7 +271,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
   }
 
   offsetCalendar(multiplier: number) {
-    console.log(this.currStart)
     switch (this.calType) {
       case 0:
         this.currStart.setDate(this.currStart.getDate() + 1 * multiplier);
@@ -401,8 +400,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
     end.setMonth(date.getMonth());
     end.setDate(date.getDate());
 
-    console.log(this.form.get('details')?.value);
-
     const newEvent: CalendarEvent = {
       summary: this.form.get('firstName')?.value + ' ' + this.form.get('lastName')?.value + ' & Zack Blase',
       description: this.form.get('details')?.value,
@@ -424,7 +421,6 @@ export class CalendarComponent implements OnInit, OnDestroy {
       number: this.form.get('number')?.value
     }
 
-
     this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
       data: newEvent,
@@ -439,7 +435,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
         'email': '',
         'details': '',
         'attachments': null,
-        'date': new Date(),
+        'date': date,
         'startTime': null,
         'endTime': null
       });

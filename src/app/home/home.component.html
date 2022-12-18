@@ -1,7 +1,7 @@
 
 <div style="padding: 20px 30px;">
     <div style="display: flex; justify-content: flex-end;">
-      <button mat-raised-button style="padding: 0 10px;" [matMenuTriggerFor]="formatMenu">
+      <button mat-raised-button style="padding: 0 10px;" [matMenuTriggerFor]="formatMenu" color="primary">
         <div style="display: flex; align-items: center;">
           Download Resum&#233;
           <!--<mat-divider [vertical]="true" style="margin: 0 4px 0 10px;"></mat-divider>-->
@@ -22,7 +22,7 @@
       </mat-menu>
     </div>
   
-    <div class="cardWrapper">
+    <div class="card-wrapper">
       <div style="display: flex; flex-flow: column nowrap; gap: 26px;">
         <div>
           <mat-card>
@@ -162,7 +162,7 @@
           <mat-card-content>
             <div style="display: flex; flex-flow:column nowrap; gap: 20px;">
               <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <div class="title-wrapper">
                   <div>
                     <h3 style="font-weight: 500;">MSTS - Nevada National Security Site</h3>
                     <mat-card-subtitle>Software Engineer</mat-card-subtitle>
@@ -224,7 +224,7 @@
               <mat-divider></mat-divider>
   
               <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <div class="title-wrapper">
                   <div>
                     <h3 style="font-weight: 500;">ASSA ABLOY - Openings Studio</h3>
                     <mat-card-subtitle>Software Engineer</mat-card-subtitle>
@@ -278,7 +278,7 @@
               <mat-divider></mat-divider>
   
               <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <div class="title-wrapper">
                   <div>
                     <h3 style="font-weight: 500;">Speedway Motors</h3>
                     <mat-card-subtitle>Web Developer (Internship)</mat-card-subtitle>
@@ -330,7 +330,7 @@
           <mat-card-title style="color: #3f51b5; opacity: 0.85;">Education</mat-card-title>
   
           <mat-card-content>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+            <div class="title-wrapper">
               <h3 style="font-weight: 500;">University of Nebraska-Lincoln</h3>
   
               <label style="text-decoration: underline;">August 2014 - July 2019</label>
@@ -382,14 +382,14 @@
               <mat-divider></mat-divider>
   
               <div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <div class="title-wrapper">
                   <div>
                     <h3 style="font-weight: 500;">Pokedia</h3>
                     <mat-card-subtitle>Mobile Application</mat-card-subtitle>
                   </div>
                   
                   <div class="bullet-label" style="color: rgba(63, 81, 181, 1); cursor: pointer;" (click)="openImageDialog(pokediaImgs)">
-                    <mat-icon style="font-size: 22px;">camera_alt</mat-icon>
+                    <mat-icon style="font-size: 22px; margin-top: 3px;">camera_alt</mat-icon>
                     <label style="cursor: pointer; text-decoration: underline;">Screenshots</label>
                   </div>
                 </div>
