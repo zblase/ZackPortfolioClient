@@ -420,6 +420,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
       }],
       number: this.form.get('number')?.value
     }
+    
 
     this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
