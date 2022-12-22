@@ -86,7 +86,7 @@ export class CalendarDayComponent implements OnInit, OnChanges {
   }
 
   renderEvents() {
-    if (this.day.date.getDate() == 25) {
+    if (this.day.date.getDate() == 22) {
       console.dir(this.day.events);
       console.dir(this.times);
     }

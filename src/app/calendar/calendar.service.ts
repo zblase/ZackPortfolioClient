@@ -43,6 +43,17 @@ export class CalendarService {
     return this.newEvent.asObservable();
   }
 
+  testCreateEvent(event: CalendarEvent, files: File[]) {
+    const formData = new FormData();
+
+    formData.append('event', JSON.stringify(event));
+    for (let file of files) {
+      formData.append('files', file);
+    }
+
+    return this.http.post<{message: string, event: any}>(environment.apiUrl + 'api/calendar', formData);
+  }
+
   createEvent(event: CalendarEvent, files: File[]) {
     const formData = new FormData();
 
