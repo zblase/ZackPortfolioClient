@@ -51,11 +51,22 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.calendarService.getEvents();
-    this.eventsSub = this.calendarService.getEventListener().subscribe((events: CalendarEvent[]) => {
+    /*this.eventsSub = this.calendarService.getEventListener().subscribe((events: CalendarEvent[]) => {
       this.events = events;
       this.resetCurrentStart();
       this.loading = false;
-    });
+    });*/
+
+    this.eventsSub = this.calendarService.getEventListener().subscribe({
+      next: (events: CalendarEvent[]) => {
+        this.events = events;
+        this.resetCurrentStart();
+        this.loading = false;
+      },
+      error: (err) => {
+        this.populateDays();
+      }
+    })
 
     //valid scheduling times range from 16:00 to 3:00 UTC
     this.hours = [];
@@ -114,6 +125,7 @@ export class CalendarComponent implements OnInit, OnDestroy {
     this.form.get('date')?.valueChanges.subscribe((value) => {
       const sTime = this.form.get('startTime')?.value;
       const eTime = this.form.get('endTime')?.value;
+
       if (sTime) {
         sTime.setDate(value.getDate());
         sTime.setMonth(value.getMonth());
@@ -422,14 +434,14 @@ export class CalendarComponent implements OnInit, OnDestroy {
     }
 
 
-    //this.calendarService.createEvent(newEvent, this.files);
+    this.calendarService.createEvent(newEvent, this.files);
     const dialogRef = this.dialog.open(CalendarDialogComponent, {
       data: newEvent,
       width: '50%'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.form.setValue({
+      /*this.form.setValue({
         'firstName': '',
         'lastName': '',
         'number': '',
@@ -439,11 +451,13 @@ export class CalendarComponent implements OnInit, OnDestroy {
         'date': date,
         'startTime': null,
         'endTime': null
-      });
+      });*/
+
+      this.form.get('startTime')?.reset();
 
       this.files = [];
 
-      this.populateDays();
+      //this.populateDays();
     });
   }
 

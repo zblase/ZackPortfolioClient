@@ -57,12 +57,12 @@
   </mat-dialog-actions>
 </div>
 
-<div *ngIf="errorMsg">
+<div *ngIf="errorMsg" style="padding: 20px;">
   <div mat-dialog-title style="display: flex; align-items: center; margin-bottom: 20px;">
     <mat-icon style="color: #f26666; margin: 0px 5px 2px 0px;">cancel</mat-icon>
     Unable to create meeting
   </div>
-  <div style="display: flex; flex-flow: column nowrap; justify-content: center;">
+  <div style="display: flex; flex-flow: column nowrap; align-items: center;">
     <label>Error:</label>
     <label style="font-weight: 300;">{{errorMsg}}</label>
   </div>

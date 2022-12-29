@@ -61,12 +61,25 @@ export class CalendarService {
     for (let file of files) {
       formData.append('files', file);
     }
-
+/*
     this.http.post<{message: string, event: any}>(environment.apiUrl + 'api/calendar', formData)
       .subscribe(res => {
         this.newEvent.next(event);
         this.events.push(event);
         this.eventsUpdated.next([...this.events]);
-      })
+    });*/
+    
+    this.http.post<{message: String, event: any}>(environment.apiUrl + 'api/calendar', formData).subscribe({
+      complete: () => {
+        this.newEvent.next(event);
+        this.events.push(event);
+        this.eventsUpdated.next([...this.events]);
+      },
+      error: (err) => {
+        console.dir(err);
+        this.newEvent.error(err);
+        this.eventsUpdated.error(err);
+      }
+    });
   }
 }

@@ -24,14 +24,28 @@ export class CalendarDialogComponent implements OnInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA) public event: CalendarEvent, private calendarService: CalendarService) { }
 
   ngOnInit() {
-    this.calendarService.testCreateEvent(this.event, []).subscribe({
+    /*this.calendarService.testCreateEvent(this.event, []).subscribe({
       complete: () => {
         this.formatDateTime();
         this.event.description = this.event.description == '' ? 'N/A' : this.event.description;
         this.loading = false;
       },
       error: (err) => {
-        this.errorMsg = err;
+        console.dir(err);
+        this.errorMsg = err.error.message.errors[0].message;
+        this.loading = false;
+      }
+    });*/
+
+    this.eventSub = this.calendarService.getNewEventListener().subscribe({
+      next: (ev) => {
+        this.formatDateTime();
+        this.event.description = this.event.description == '' ? 'N/A' : this.event.description;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.dir(err);
+        this.errorMsg = err.error.message.errors[0].message;
         this.loading = false;
       }
     });
@@ -41,20 +55,10 @@ export class CalendarDialogComponent implements OnInit, OnDestroy {
       this.event.description = this.event.description == '' ? 'N/A' : this.event.description;
       this.loading = false;
     })*/
-    
-
-  }
-
-  onCreateSuccess() {
-
-  }
-
-  onCreateError() {
-
   }
 
   ngOnDestroy(): void {
-    //this.eventSub.unsubscribe();
+    this.eventSub.unsubscribe();
   }
 
   formatDateTime() {
